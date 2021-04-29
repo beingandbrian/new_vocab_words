@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1> This is supposed to be a WORD LIST! WOW!</h1>
+
+<div class="row pt-3"></div>
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Word</th>
+        <th scope="col">Definition</th>
+        <th scope="col">Sentence</th>
+        <th scope="col">Creator</th>
+        <th scope="col">Publish Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for w in words %}  
+      <tr>
+        <td scope="row">{{w.id}}</td>
+        <td>{{w.word}}</td>
+        <td>{{w.definition}}</td>
+        <!-- can hardcode using "/book/{{b.pk}}" inhref tag-->
+        <td>{{w.sentence}}</td>
+        <td><a href="#">{{w.creator}}</a></td>
+        <td>{{w.publish_date}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
